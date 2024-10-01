@@ -1,0 +1,145 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "7.1c8aad8c.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/7.1c8aad8c.js"
+      }
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "7.22936e1b.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/7.22936e1b.js"
+      }
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "7.6c432187.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/7.6c432187.js"
+      }
+    }
+  },
+  {
+    "id": 4,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "7.8f33e82b.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/7.8f33e82b.js"
+      }
+    }
+  },
+  {
+    "id": 5,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "7.8f773b30.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/7.8f773b30.js"
+      }
+    }
+  },
+  {
+    "id": 6,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "7.bcc01791.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/7.bcc01791.js"
+      }
+    }
+  },
+  {
+    "id": 7,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "7.c0d178f2.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/7.c0d178f2.js"
+      }
+    }
+  },
+  {
+    "id": 8,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "7.c2344937.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/7.c2344937.js"
+      }
+    }
+  },
+  {
+    "id": 9,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "7.e5ed2744.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/7.e5ed2744.js"
+      }
+    }
+  },
+  {
+    "id": 10,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "8.69d43536.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/8.69d43536.js"
+      }
+    }
+  },
+  {
+    "id": 11,
+    "priority": 1,
+    "condition": {
+      "urlFilter": "8.e03cf306.js"
+    },
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "extensionPath": "/overrides/weread/8.e03cf306.js"
+      }
+    }
+  }
+]

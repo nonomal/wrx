@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
   "name": "魏如雪",
-  "description": "你可以叫我小雪，我是夏如雯的好朋友",
-  "version": "0.0.4.4",
+  "description": "电子书采集工具，目前仅支持微信读书",
+  "version": "0.0.6.6",
   "permissions": [
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
@@ -10,14 +10,15 @@
   ],
   "host_permissions": [
     "https://*.weread.qq.com/*",
-    "https://*.file.myqcloud.com/*"
+    "https://*.file.myqcloud.com/*",
+    "https://www.zhihu.com/*"
   ],
   "declarative_net_request": {
     "rule_resources": [
       {
-        "id": "ruleset_1",
+        "id": "ruleset_weread",
         "enabled": true,
-        "path": "rules/rule.json"
+        "path": "rules/weread.json"
       }
     ]
   },
@@ -27,14 +28,34 @@
         "https://*.weread.qq.com/web/reader/*"
       ],
       "js": [
-        "lib/crypto-js@4.2.0.min.js",
-        "lib/utils.js",
-        "lib/store.js",
-        "lib/content.js",
-        "scripts/auto.js"
+        "common/inject.js",
+        "common/utils.js",
+        "sites/weread/crypto-js@4.2.0.min.js",
+        "sites/weread/utils.js",
+        "sites/weread/store.js",
+        "sites/weread/content.js",
+        "sites/weread/auto.js"
       ],
       "css": [
-        "toc.css"
+        "sites/weread/toc.css"
+      ],
+      "run_at": "document_start",
+      "world": "ISOLATED",
+      "all_frames": false
+    },
+    {
+      "matches": [
+        "https://www.zhihu.com/pub/reader/*"
+      ],
+      "js": [
+        "common/inject.js",
+        "common/utils.js",
+        "sites/zhihu/store.js",
+        "sites/zhihu/content.js",
+        "sites/zhihu/auto.js"
+      ],
+      "css": [
+        "sites/zhihu/toc.css"
       ],
       "run_at": "document_start",
       "world": "ISOLATED",
@@ -43,69 +64,37 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": [
-        "lib/xhr-fetch.js"
-      ],
       "matches": [
         "<all_urls>"
+      ],
+      "resources": [
+        "common/xhr-fetch.js"
       ]
     },
     {
-      "resources": [
-        "/overrides/6.014ecba2.js",
-        "/overrides/6.0cf1335d.js",
-        "/overrides/6.0f8531aa.js",
-        "/overrides/6.86c67fdd.js",
-        "/overrides/6.8e17f59a.js",
-        "/overrides/6.977228d7.js",
-        "/overrides/6.9a7afd68.js",
-        "/overrides/6.dd196dae.js",
-        "/overrides/7.04bb0a1c.js",
-        "/overrides/7.0a38f2f5.js",
-        "/overrides/7.1a24df31.js",
-        "/overrides/7.20b30d46.js",
-        "/overrides/7.24acd39e.js",
-        "/overrides/7.2a0ae8be.js",
-        "/overrides/7.2fb98ce9.js",
-        "/overrides/7.3394fd13.js",
-        "/overrides/7.3b8878b8.js",
-        "/overrides/7.3da2de76.js",
-        "/overrides/7.70713d4a.js",
-        "/overrides/7.76a189e5.js",
-        "/overrides/7.79c38430.js",
-        "/overrides/7.8c1ddae9.js",
-        "/overrides/7.9202be9e.js",
-        "/overrides/7.9409adc3.js",
-        "/overrides/7.947c2729.js",
-        "/overrides/7.9a9d9490.js",
-        "/overrides/7.9b51c786.js",
-        "/overrides/7.a06eabbb.js",
-        "/overrides/7.a320306a.js",
-        "/overrides/7.ab56cea8.js",
-        "/overrides/7.bd5fbf27.js",
-        "/overrides/7.c7402365.js",
-        "/overrides/7.c9283531.js",
-        "/overrides/7.c9fda82f.js",
-        "/overrides/7.ce60691e.js",
-        "/overrides/7.d69be44e.js",
-        "/overrides/7.da762a26.js",
-        "/overrides/7.dc67f89b.js",
-        "/overrides/7.dc814d1d.js",
-        "/overrides/7.f554b531.js",
-        "/overrides/7.f69c4bdc.js",
-        "/overrides/7.f6ac3b8d.js",
-        "/overrides/7.fab7d9dc.js"
-      ],
       "matches": [
-        "<all_urls>"
+        "https://*.weread.qq.com/*"
+      ],
+      "resources": [
+        "/overrides/weread/7.1c8aad8c.js",
+        "/overrides/weread/7.22936e1b.js",
+        "/overrides/weread/7.6c432187.js",
+        "/overrides/weread/7.8f33e82b.js",
+        "/overrides/weread/7.8f773b30.js",
+        "/overrides/weread/7.bcc01791.js",
+        "/overrides/weread/7.c0d178f2.js",
+        "/overrides/weread/7.c2344937.js",
+        "/overrides/weread/7.e5ed2744.js",
+        "/overrides/weread/8.69d43536.js",
+        "/overrides/weread/8.e03cf306.js"
       ]
     }
   ],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": "assets/ebook-disabled.png"
   },
   "background": {
     "service_worker": "background.js"
-  },
-  "version_name": "2024/8/2 18:21:26"
+  }
 }
