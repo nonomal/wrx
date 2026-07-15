@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "魏如雪",
   "description": "电子书采集工具，目前仅支持微信读书",
-  "version": "0.1.0.5",
+  "version": "0.1.0.6",
   "permissions": [
     "declarativeNetRequest",
     "declarativeNetRequestFeedback",
@@ -82,11 +82,11 @@
         "/overrides/weread/9.29fe8bc8.js",
         "/overrides/weread/9.2da97a2f.js",
         "/overrides/weread/9.7ff82433.js",
+        "/overrides/weread/9.898844ac.js",
         "/overrides/weread/9.8c0ac7a9.js",
         "/overrides/weread/9.908697d5.js",
         "/overrides/weread/9.97564774.js",
-        "/overrides/weread/9.9935bd1a.js",
-        "/overrides/weread/9.d8dbdca4.js"
+        "/overrides/weread/9.9935bd1a.js"
       ]
     }
   ],
