@@ -1,17 +1,16 @@
-name: Release
+name: 测试 Actions
 
 on:
-  schedule:
-    - cron: "0 * * * *"
   push:
     branches:
-      - master
+      - dev
+
 
 jobs:
   check-update:
     name: 检查微信读书核心js是否有更新
-    runs-on: ubuntu-latest
     if: github.repository == 'jooooock/wrx'
+    runs-on: ubuntu-latest
     outputs:
       needUpgrade: ${{ steps.step3.outputs.exists }}
 
@@ -24,17 +23,21 @@ jobs:
 
       - name: 检查微信读书是否更新
         id: step3
-        run: |
+        run: | 
           node ./scripts/weread/check-update.js
           test -e ./scripts/weread/tmp/url && echo "exists=true" >> "$GITHUB_OUTPUT" || echo "exists=false" >> "$GITHUB_OUTPUT"
 
   build:
     name: 打包发布
-    runs-on: ubuntu-latest
     needs: check-update
+    runs-on: ubuntu-latest
     if: needs.check-update.outputs.needUpgrade == 'true'
 
     steps:
+      - name: 打印job结果
+        run: |
+          echo "job result: ${{ toJSON(needs.check-update.outputs) }}"
+
       - name: 拉取代码
         uses: actions/checkout@v4
 
@@ -52,20 +55,3 @@ jobs:
       - name: 输出构建结果
         run: |
           echo "build result: ${{ toJSON(steps.build.outputs) }}"
-
-      - name: 提交代码
-        run: |
-          git config --local user.name bot
-          git config --local user.email bot@github.com
-          git add .
-          git commit -m "release $(echo $version)"
-          git tag $(echo $version)
-          git pull
-          git push origin master
-          git push --tags
-
-      - name: 发布 Release
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "releases/wrx-${{ steps.build.outputs.version }}.zip"
-          tag: "${{ steps.build.outputs.version }}"
